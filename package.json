@@ -1,0 +1,28 @@
+{
+  "name": "split-text-react",
+  "version": "0.0.0",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsup",
+    "prettier:check": "prettier --check ./*",
+    "prettier:format": "prettier --write ./*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/julio-salas03/split-text-react.git"
+  },
+  "author": "Julio Salas",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/julio-salas03/split-text-react/issues"
+  },
+  "homepage": "https://github.com/julio-salas03/split-text-react#readme",
+  "description": "",
+  "devDependencies": {
+    "prettier": "^3.3.3",
+    "tsup": "^8.2.4",
+    "typescript": "^5.5.4"
+  }
+}
