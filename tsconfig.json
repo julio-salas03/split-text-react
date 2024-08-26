@@ -9,8 +9,10 @@
     "moduleResolution": "Node10",
     "module": "CommonJS",
     "declaration": true,
+    "rootDir": "./src",
     "isolatedModules": true,
     "noEmit": true,
+    "jsx": "react",
     "outDir": "dist"
   },
   "include": ["src"],
