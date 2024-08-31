@@ -20,6 +20,9 @@
   },
   "homepage": "https://github.com/julio-salas03/split-text-react#readme",
   "description": "",
+  "peerDependencies": {
+    "react": ">=16"
+  },
   "devDependencies": {
     "@types/node": "^22.5.0",
     "@types/react": "^18.3.4",
