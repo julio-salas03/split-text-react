@@ -44,4 +44,14 @@ describe('SplitText', () => {
 
     checkRef();
   });
+
+  it('should break text as in the captured snapshot', () => {
+    const { container } = render(
+      <SplitText>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ac urna
+        hendrerit, aliquet quam eget, faucibus lectus.
+      </SplitText>
+    );
+    expect(container).toMatchSnapshot();
+  });
 });
