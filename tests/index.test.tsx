@@ -27,15 +27,21 @@ describe('SplitText', () => {
   });
 
   it('should forward the ref to the component', () => {
-    const Component: React.FC = () => {
+    let checkRef = () => {};
+
+    const Component = () => {
       const ref = React.useRef(null);
-      setTimeout(() => {
+
+      checkRef = () => {
         expect(ref.current).not.toBeNull();
         expect(ref.current).toBeInstanceOf(HTMLElement);
-      }, 500);
+      };
+
       return <SplitText ref={ref}>Hello World</SplitText>;
     };
 
     render(<Component />);
+
+    checkRef();
   });
 });
