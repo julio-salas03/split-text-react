@@ -3,9 +3,9 @@ import {
   LineWrapper,
   WordWrapper,
   LetterWrapper,
-  LetterWrapperProp,
-  WordWrapperProp,
-  LineWrapperProp,
+  LetterWrapperProps,
+  WordWrapperProps,
+  LineWrapperProps,
 } from './Wrappers';
 import { debounce } from '../utils';
 
@@ -28,17 +28,17 @@ export interface SplitTextProps<T = any> {
    * A custom component to wrap each split line.
    * @type ComponentType<LineWrapperProp>
    */
-  LineWrapper?: React.ComponentType<LineWrapperProp>;
+  LineWrapper?: React.ComponentType<LineWrapperProps>;
   /**
    * A custom component to wrap each split word.
    * @type ComponentType<WordWrapperProp>
    */
-  WordWrapper?: React.ComponentType<WordWrapperProp>;
+  WordWrapper?: React.ComponentType<WordWrapperProps>;
   /**
    * A custom component to wrap each split letter.
    * @type ComponentType<LetterWrapperProp>
    */
-  LetterWrapper?: React.ComponentType<LetterWrapperProp>;
+  LetterWrapper?: React.ComponentType<LetterWrapperProps>;
   /**
    * An extra value that will be forwarded to each wrappers.
    * @type T = any

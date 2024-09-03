@@ -1,6 +1,6 @@
 import React from 'react';
 
-export interface LineWrapperProp<T = any> {
+export interface LineWrapperProps<T = any> {
   /**
    * The current index of the line.
    */
@@ -13,11 +13,11 @@ export interface LineWrapperProp<T = any> {
   children: React.ReactNode;
 }
 
-export const LineWrapper = ({ children }: LineWrapperProp) => (
+export const LineWrapper = ({ children }: LineWrapperProps) => (
   <div>{children}</div>
 );
 
-export interface WordWrapperProp<T = any> {
+export interface WordWrapperProps<T = any> {
   /**
    * The current line index where the word wrapper lives.
    */
@@ -38,11 +38,11 @@ export interface WordWrapperProp<T = any> {
   children: React.ReactNode;
 }
 
-export const WordWrapper = ({ children }: WordWrapperProp) => (
+export const WordWrapper = ({ children }: WordWrapperProps) => (
   <span style={{ whiteSpace: 'pre' }}>{children}</span>
 );
 
-export interface LetterWrapperProp<T = any> {
+export interface LetterWrapperProps<T = any> {
   /**
    * The current line index where the letter wrapper lives.
    */
@@ -67,6 +67,6 @@ export interface LetterWrapperProp<T = any> {
   children: React.ReactNode;
 }
 
-export const LetterWrapper = ({ children }: LetterWrapperProp) => (
+export const LetterWrapper = ({ children }: LetterWrapperProps) => (
   <span>{children}</span>
 );
