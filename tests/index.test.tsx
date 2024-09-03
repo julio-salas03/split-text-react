@@ -16,14 +16,14 @@ describe('SplitText', () => {
     expect(() =>
       render(
         <SplitText>
-          <div>foo</div>
+          <div>Lorem ipsum</div>
         </SplitText>
       )
     ).toThrow();
   });
 
   it('should support computed text', () => {
-    expect(() => render(<SplitText>foo {5}</SplitText>)).not.toThrow();
+    expect(() => render(<SplitText>Lorem {'ipsum'}</SplitText>)).not.toThrow();
   });
 
   it('should forward the ref to the component', () => {
@@ -37,7 +37,7 @@ describe('SplitText', () => {
         expect(ref.current).toBeInstanceOf(HTMLElement);
       };
 
-      return <SplitText ref={ref}>Hello World</SplitText>;
+      return <SplitText ref={ref}>Lorem ipsum</SplitText>;
     };
 
     render(<Component />);
