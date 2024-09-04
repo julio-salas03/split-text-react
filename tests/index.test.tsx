@@ -49,7 +49,7 @@ describe('SplitText', () => {
     let checkStyles = () => {};
 
     const Component = () => {
-      const ref = React.useRef<HTMLElement>(null);
+      const ref = React.useRef<HTMLSpanElement>(null);
 
       checkStyles = () => {
         const el = ref.current;
@@ -72,7 +72,7 @@ describe('SplitText', () => {
     let checkStyles = () => {};
 
     const Component = () => {
-      const ref = React.useRef<HTMLElement>(null);
+      const ref = React.useRef<HTMLDivElement>(null);
 
       checkStyles = () => {
         const el = ref.current;
