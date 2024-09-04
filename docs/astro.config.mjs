@@ -12,6 +12,10 @@ export default defineConfig({
       },
       sidebar: [
         {
+          label: 'Home',
+          slug: '',
+        },
+        {
           label: 'API',
           slug: 'api',
         },
