@@ -7,7 +7,7 @@ import {
   WordWrapperProps,
   LineWrapperProps,
 } from './Wrappers';
-import { debounce } from '../utils';
+import { debounce, HTMLElementTag } from '../utils';
 
 const DefaultLineWrapper = React.memo(LineWrapper);
 const DefaultWordWrapper = React.memo(WordWrapper);
@@ -62,14 +62,14 @@ export interface SplitTextProps<T = any> {
   /**
    * The HTML tag as the container for the text.
    * @default "span"
-   * @type JSX.ElementType
+   * @type HTMLElementTag
    */
-  tag?: JSX.ElementType;
+  tag?: HTMLElementTag;
 }
 
 const DEFAULT_CONTAINER_TAG = 'span';
 
-export const SplitText = React.forwardRef<unknown, SplitTextProps>(
+export const SplitText = React.forwardRef<HTMLElement, SplitTextProps>(
   function SplitText(
     {
       children,
@@ -86,7 +86,7 @@ export const SplitText = React.forwardRef<unknown, SplitTextProps>(
   ) {
     let text = '';
 
-    const Container = tag || DEFAULT_CONTAINER_TAG;
+    const Container = (tag || DEFAULT_CONTAINER_TAG) as JSX.ElementType;
 
     React.Children.map(children, child => {
       if (typeof child === 'string' || typeof child === 'number') {
