@@ -5,8 +5,8 @@
   "repository": {
     "url": "https://github.com/julio-salas03/split-text-react.git"
   },
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
+  "main": "./index.js",
+  "module": "./index.mjs",
   "devDependencies": {
     "@chromatic-com/storybook": "^1.8.0",
     "@storybook/addon-essentials": "^8.2.9",
@@ -54,5 +54,11 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
-  "types": "./dist/index.d.ts"
+  "types": "./index.d.ts",
+  "files": [
+    "./dist/index.js",
+    "./dist/index.mjs",
+    "./dist/index.d.ts",
+    "./dist/index.d.mts"
+  ]
 }
