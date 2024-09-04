@@ -45,7 +45,19 @@ export interface SplitTextProps<T = any> {
    */
   extraProps?: T;
 
+  /**
+   * The content to be split and rendered
+   */
   children: React.ReactNode;
+
+  /**
+   * The time the resize listener should be debounced by. In milliseconds.
+   *
+   * See what is "debouncing" here: https://medium.com/@jamischarles/what-is-debouncing-2505c0648ff1
+   * @type number
+   * @default 400
+   */
+  debounceTime?: number;
 }
 
 export const SplitText = React.forwardRef<unknown, SplitTextProps>(
@@ -58,6 +70,7 @@ export const SplitText = React.forwardRef<unknown, SplitTextProps>(
       WordWrapper = DefaultWordWrapper,
       LetterWrapper = DefaultLetterWrapper,
       extraProps,
+      debounceTime = 400,
     },
     ref
   ) {
@@ -81,7 +94,7 @@ export const SplitText = React.forwardRef<unknown, SplitTextProps>(
 
       const resetLines = debounce(() => {
         setLines([]);
-      }, 400);
+      }, debounceTime);
 
       const resizeObserver = new ResizeObserver(resetLines);
 
@@ -90,7 +103,7 @@ export const SplitText = React.forwardRef<unknown, SplitTextProps>(
       return () => {
         resizeObserver.unobserve(el);
       };
-    }, []);
+    }, [debounceTime]);
 
     /**
      * Splits text into lines based on DOM measurements.
