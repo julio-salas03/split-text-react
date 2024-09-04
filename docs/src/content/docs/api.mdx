@@ -1,0 +1,92 @@
+---
+title: API Reference
+---
+
+# SplitText
+
+Wrap your text with this component. The text will automatically be wrapped, by default with span elements, and will be readjusted on resize.
+
+```tsx
+<SplitText>
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+  incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+  nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
+</SplitText>
+```
+
+### Props
+
+| **Name**          | **Description**                                        | **Type**                            |
+| ----------------- | ------------------------------------------------------ | ----------------------------------- |
+| **className**     | className to forward to the container.                 | `string`                            |
+| **style**         | A style object to forward to the container.            | `CSSProperties`                     |
+| **LineWrapper**   | A custom component to wrap each split line.            | `ComponentType<LineWrapperProps>`   |
+| **WordWrapper**   | A custom component to wrap each split word.            | `ComponentType<WordWrapperProps>`   |
+| **LetterWrapper** | A custom component to wrap each split letter.          | `ComponentType<LetterWrapperProps>` |
+| **extraProps**    | An extra value that will be forwarded to each wrapper. | `T`                                 |
+| **children**      | The content to be split and rendered.                  | `ReactNode`                         |
+
+### Example
+
+You can inspect the bellow result to see how each line, word and letter are wrapped with a span.
+
+TODO: add live code example
+
+## LineWrapper
+
+Creates a custom line wrapper for `SplitText`. It receives the following props:
+
+### Props
+
+| **Name**       | **Description**                       | **Type**    |
+| -------------- | ------------------------------------- | ----------- |
+| **lineIndex**  | The current index of the line.        | `number`    |
+| **extraProps** | Extra props forwarded from SplitText. | `T`         |
+| **children**   | The content to be rendered.           | `ReactNode` |
+
+### Example
+
+Hover the lines to see their indexes.
+
+TODO: add live code example
+
+## WordWrapper
+
+Creates a custom word wrapper for `SplitText`. It receives the following props:
+
+### Props
+
+| **Name**       | **Description**                                                  | **Type**    |
+| -------------- | ---------------------------------------------------------------- | ----------- |
+| **lineIndex**  | The current line index where the word wrapper lives.             | `number`    |
+| **wordIndex**  | The current index of the word.                                   | `number`    |
+| **countIndex** | The current index of the total wrapped words inside `SplitText`. | `number`    |
+| **extraProps** | Extra props forwarded from SplitText.                            | `T`         |
+| **children**   | The content to be rendered.                                      | `ReactNode` |
+
+### Example
+
+Hover the words to see their indexes.
+
+TODO: add live code example
+
+## LetterWrapper
+
+Creates a custom letter wrapper for `SplitText`. It receives the following props:
+
+### Props
+
+| **Name**        | **Description**                                                    | **Type**    |
+| --------------- | ------------------------------------------------------------------ | ----------- |
+| **lineIndex**   | The current line index where the letter wrapper lives.             | `number`    |
+| **wordIndex**   | The current word index where the letter wrapper lives.             | `number`    |
+| **letterIndex** | The current index of the letter.                                   | `number`    |
+| **countIndex**  | The current index of the total wrapped letters inside `SplitText`. | `number`    |
+| **extraProps**  | Extra props forwarded from SplitText.                              | `T`         |
+| **children**    | The content to be rendered.                                        | `ReactNode` |
+
+### Example
+
+Hover the letters to see their indexes.
+
+TODO: add live code example
