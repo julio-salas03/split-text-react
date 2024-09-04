@@ -45,23 +45,48 @@ export interface SplitTextProps<T = any> {
    */
   extraProps?: T;
 
+  /**
+   * The content to be split and rendered
+   */
   children: React.ReactNode;
+
+  /**
+   * The time the resize listener should be debounced by. In milliseconds.
+   *
+   * See what is "debouncing" here: https://medium.com/@jamischarles/what-is-debouncing-2505c0648ff1
+   * @type number
+   * @default 400
+   */
+  debounceTime?: number;
+
+  /**
+   * The HTML tag as the container for the text.
+   * @default "span"
+   * @type JSX.ElementType
+   */
+  tag?: JSX.ElementType;
 }
+
+const DEFAULT_CONTAINER_TAG = 'span';
 
 export const SplitText = React.forwardRef<unknown, SplitTextProps>(
   function SplitText(
     {
       children,
       className,
-      style,
+      style = {},
       LineWrapper = DefaultLineWrapper,
       WordWrapper = DefaultWordWrapper,
       LetterWrapper = DefaultLetterWrapper,
       extraProps,
+      debounceTime = 400,
+      tag,
     },
     ref
   ) {
     let text = '';
+
+    const Container = tag || DEFAULT_CONTAINER_TAG;
 
     React.Children.map(children, child => {
       if (typeof child === 'string' || typeof child === 'number') {
@@ -71,7 +96,7 @@ export const SplitText = React.forwardRef<unknown, SplitTextProps>(
       }
     });
     const [lines, setLines] = React.useState<Array<string>>([]);
-    const elRef = React.useRef<HTMLDivElement | null>(null);
+    const elRef = React.useRef<HTMLElement | null>(null);
     const maxCharPerLine = React.useRef<number>(0);
 
     React.useEffect(() => {
@@ -81,7 +106,7 @@ export const SplitText = React.forwardRef<unknown, SplitTextProps>(
 
       const resetLines = debounce(() => {
         setLines([]);
-      }, 400);
+      }, debounceTime);
 
       const resizeObserver = new ResizeObserver(resetLines);
 
@@ -90,7 +115,7 @@ export const SplitText = React.forwardRef<unknown, SplitTextProps>(
       return () => {
         resizeObserver.unobserve(el);
       };
-    }, []);
+    }, [debounceTime]);
 
     /**
      * Splits text into lines based on DOM measurements.
@@ -162,19 +187,24 @@ export const SplitText = React.forwardRef<unknown, SplitTextProps>(
     let wordCount = 0;
     let letterCount = 0;
 
+    const styles = Object.assign(
+      style,
+      Container === DEFAULT_CONTAINER_TAG ? { display: 'block' } : {}
+    );
+
     return lines.length ? (
-      <div
+      <Container
         className={className}
-        ref={div => {
-          elRef.current = div;
+        ref={(el: HTMLElement) => {
+          elRef.current = el;
+          if (!ref) return;
           if (typeof ref == 'function') {
-            ref(div);
-          } else if (ref) {
-            (ref as React.MutableRefObject<HTMLDivElement | null>).current =
-              div;
+            ref(el);
+          } else {
+            ref.current = el;
           }
         }}
-        style={style}
+        style={styles}
       >
         {lines.map((line, i) => {
           let words = line.split(' ');
@@ -211,13 +241,13 @@ export const SplitText = React.forwardRef<unknown, SplitTextProps>(
             </LineWrapper>
           );
         })}
-      </div>
+      </Container>
     ) : (
-      <div className={className} ref={elRef} style={style}>
+      <Container className={className} ref={elRef} style={styles}>
         {text.split(' ').map((word, i) => (
           <span key={i}>{word} </span>
         ))}
-      </div>
+      </Container>
     );
   }
 );

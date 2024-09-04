@@ -2,8 +2,12 @@
 
 exports[`SplitText should break text as in the captured snapshot 1`] = `
 <div>
-  <div>
-    <div>
+  <span
+    style="display: block;"
+  >
+    <span
+      style="display: block;"
+    >
       <span
         style="white-space: pre;"
       >
@@ -423,7 +427,7 @@ exports[`SplitText should break text as in the captured snapshot 1`] = `
           .
         </span>
       </span>
-    </div>
-  </div>
+    </span>
+  </span>
 </div>
 `;

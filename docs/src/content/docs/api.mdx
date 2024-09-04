@@ -16,15 +16,17 @@ Wrap your text with this component. The text will automatically be wrapped, by d
 
 ### Props
 
-| **Name**          | **Description**                                        | **Type**                            |
-| ----------------- | ------------------------------------------------------ | ----------------------------------- |
-| **className**     | className to forward to the container.                 | `string`                            |
-| **style**         | A style object to forward to the container.            | `CSSProperties`                     |
-| **LineWrapper**   | A custom component to wrap each split line.            | `ComponentType<LineWrapperProps>`   |
-| **WordWrapper**   | A custom component to wrap each split word.            | `ComponentType<WordWrapperProps>`   |
-| **LetterWrapper** | A custom component to wrap each split letter.          | `ComponentType<LetterWrapperProps>` |
-| **extraProps**    | An extra value that will be forwarded to each wrapper. | `T`                                 |
-| **children**      | The content to be split and rendered.                  | `ReactNode`                         |
+| **Name**          | **Description**                                                                                                                           | **Type**                            |
+| ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------- |
+| **className**     | className to forward to the container.                                                                                                    | `string`                            |
+| **style**         | A style object to forward to the container.                                                                                               | `CSSProperties`                     |
+| **LineWrapper**   | A custom component to wrap each split line.                                                                                               | `ComponentType<LineWrapperProps>`   |
+| **WordWrapper**   | A custom component to wrap each split word.                                                                                               | `ComponentType<WordWrapperProps>`   |
+| **LetterWrapper** | A custom component to wrap each split letter.                                                                                             | `ComponentType<LetterWrapperProps>` |
+| **extraProps**    | An extra value that will be forwarded to each wrapper.                                                                                    | `T`                                 |
+| **children**      | The content to be split and rendered.                                                                                                     | `ReactNode`                         |
+| **debounceTime**  | The time the resize listener should be [debounced](https://medium.com/@jamischarles/what-is-debouncing-2505c0648ff1) by. In milliseconds. | `number`                            |
+| **tag**           | The HTML tag as the container for the text.                                                                                               | `JSX.ElementType`                   |
 
 ### Example
 
@@ -42,7 +44,7 @@ Creates a custom line wrapper for `SplitText`. It receives the following props:
 | -------------- | ------------------------------------- | ----------- |
 | **lineIndex**  | The current index of the line.        | `number`    |
 | **extraProps** | Extra props forwarded from SplitText. | `T`         |
-| **children**   | The content to be rendered.           | `ReactNode` |
+| **children**   |                                       | `ReactNode` |
 
 ### Example
 
@@ -62,7 +64,7 @@ Creates a custom word wrapper for `SplitText`. It receives the following props:
 | **wordIndex**  | The current index of the word.                                   | `number`    |
 | **countIndex** | The current index of the total wrapped words inside `SplitText`. | `number`    |
 | **extraProps** | Extra props forwarded from SplitText.                            | `T`         |
-| **children**   | The content to be rendered.                                      | `ReactNode` |
+| **children**   |                                                                  | `ReactNode` |
 
 ### Example
 
@@ -83,7 +85,7 @@ Creates a custom letter wrapper for `SplitText`. It receives the following props
 | **letterIndex** | The current index of the letter.                                   | `number`    |
 | **countIndex**  | The current index of the total wrapped letters inside `SplitText`. | `number`    |
 | **extraProps**  | Extra props forwarded from SplitText.                              | `T`         |
-| **children**    | The content to be rendered.                                        | `ReactNode` |
+| **children**    |                                                                    | `ReactNode` |
 
 ### Example
 

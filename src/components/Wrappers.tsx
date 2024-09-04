@@ -14,7 +14,7 @@ export interface LineWrapperProps<T = any> {
 }
 
 export const LineWrapper = ({ children }: LineWrapperProps) => (
-  <div>{children}</div>
+  <span style={{ display: 'block' }}>{children}</span>
 );
 
 export interface WordWrapperProps<T = any> {
@@ -27,7 +27,7 @@ export interface WordWrapperProps<T = any> {
    */
   wordIndex: number;
   /**
-   * The current index of the total wrapped words inside <SplitText />.
+   * The current index of the total wrapped words inside `SplitText`.
    */
   countIndex: number;
   /**
@@ -56,7 +56,7 @@ export interface LetterWrapperProps<T = any> {
    */
   letterIndex: number;
   /**
-   * The current index of the total wrapped letters inside `<SplitText />`.
+   * The current index of the total wrapped letters inside `SplitText`.
    */
   countIndex: number;
   /**
