@@ -45,6 +45,52 @@ describe('SplitText', () => {
     checkRef();
   });
 
+  it('should add `display: block` if the "tag" prop is the default (span)', () => {
+    let checkStyles = () => {};
+
+    const Component = () => {
+      const ref = React.useRef<HTMLElement>(null);
+
+      checkStyles = () => {
+        const el = ref.current;
+        expect(el?.style.display).toBe('block');
+      };
+
+      return (
+        <SplitText tag="span" ref={ref}>
+          Lorem ipsum
+        </SplitText>
+      );
+    };
+
+    render(<Component />);
+
+    checkStyles();
+  });
+
+  it("shouldn't add any `display` value if the 'tag' prop is not the default", () => {
+    let checkStyles = () => {};
+
+    const Component = () => {
+      const ref = React.useRef<HTMLElement>(null);
+
+      checkStyles = () => {
+        const el = ref.current;
+        expect(el?.style.display).toBeFalsy();
+      };
+
+      return (
+        <SplitText tag="div" ref={ref}>
+          Lorem ipsum
+        </SplitText>
+      );
+    };
+
+    render(<Component />);
+
+    checkStyles();
+  });
+
   it('should break text as in the captured snapshot', () => {
     const { container } = render(
       <SplitText>

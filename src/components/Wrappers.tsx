@@ -14,7 +14,7 @@ export interface LineWrapperProps<T = any> {
 }
 
 export const LineWrapper = ({ children }: LineWrapperProps) => (
-  <div>{children}</div>
+  <span style={{ display: 'block' }}>{children}</span>
 );
 
 export interface WordWrapperProps<T = any> {
