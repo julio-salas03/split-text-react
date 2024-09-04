@@ -8,7 +8,7 @@ Want to see the library in action? Check out these awesome [Demos](#TODO). If yo
 
 - _Fully Responsive_ 📐: recalculates wrappers on component resize with `ResizeObserver`, rather than on window resize.
 - _Lightweight_ 🪶: **zero** dependencies, and **less than 7kb** un-minified.
-- _Semantic_ 📝: wraps you text in `span` by default, so you can use it inside `h1` and many other elements. You can also select the container's rendered tag via [props](#TODO) _(TODO: add link to API here)_.
+- _Semantic_ 📝: wraps you text in `span` by default, so you can use it inside `h1` and many other elements. You can also select the container's rendered container tag via [props](https://julio-salas03.github.io/split-text-react/api/#props).
 
 ## Installation
 
