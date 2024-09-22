@@ -44,6 +44,12 @@
     "url": "https://github.com/julio-salas03/split-text-react/issues"
   },
   "description": "",
+  "files": [
+    "./index.js",
+    "./index.mjs",
+    "./index.d.ts",
+    "./index.d.mts"
+  ],
   "homepage": "https://github.com/julio-salas03/split-text-react#readme",
   "license": "MIT",
   "scripts": {
@@ -55,11 +61,5 @@
     "build-storybook": "storybook build",
     "release": "npm run build && cp ./dist/* . && npm publish && git clean -fd"
   },
-  "types": "./index.d.ts",
-  "files": [
-    "./index.js",
-    "./index.mjs",
-    "./index.d.ts",
-    "./index.d.mts"
-  ]
+  "types": "./index.d.ts"
 }

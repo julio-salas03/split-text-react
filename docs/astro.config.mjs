@@ -1,5 +1,6 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
+import react from '@astrojs/react';
 
 export default defineConfig({
   site: 'https://julio-salas03.github.io',
@@ -25,5 +26,6 @@ export default defineConfig({
         },
       ],
     }),
+    react(),
   ],
 });

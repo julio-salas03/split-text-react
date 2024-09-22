@@ -41,6 +41,7 @@ export const Primary: Story = {
   args: {
     children:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ac urna hendrerit, aliquet quam eget, faucibus lectus.',
+    WordWrapper: ({ children }) => <span className="word">{children}</span>,
   },
   render: props => <Component {...props} />,
 };
